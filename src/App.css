@@ -10,6 +10,10 @@
   text-align: center;
 }
 
+body {
+  margin-top: 100px;
+}
+
 .App-header {
   font-size: 70px;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
@@ -33,30 +37,31 @@ label {
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-button {
-  width: 10%;
-}
-
 td {
   font-size: 20px;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-#td-edit {
-  width: 5%;
+.actions {
+  width: 10%;
 }
 
-#edit {
+.formButton {
   border: transparent;
   background: transparent;
 }
 
-#td-delete {
-  width: 5%;
+#edit-author {
+  width: 90%;
+  height: 40%;
 }
 
-#delete {
-  border: transparent;
-  background: transparent;
+#edit-title {
+  width: 90%;
+  height: 40%;
+}
+
+.table-content {
+  width: 45%;
 }

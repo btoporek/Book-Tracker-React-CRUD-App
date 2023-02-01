@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import Table from "react-bootstrap/Table";
 import { InputGroup } from "react-bootstrap";
 
@@ -33,6 +33,8 @@ export default function BookList(props) {
   const handleSubmit = (e) => {
     console.log("submitted");
     e.preventDefault();
+    // const fieldName = e.target.getAttribute("name");
+    // const fieldValue = e.target.value;
     fetch(endpoint, {
       method: "POST",
       body: JSON.stringify({
@@ -58,6 +60,7 @@ export default function BookList(props) {
           <input
             type="text"
             id="title"
+            name="author"
             placeholder="title"
             onChange={(e) => {
               setTitle(e.target.value);
@@ -67,6 +70,7 @@ export default function BookList(props) {
           <input
             type="text"
             id="author"
+            name="author"
             placeholder="author"
             onChange={(e) => {
               setAuthor(e.target.value);
@@ -81,14 +85,12 @@ export default function BookList(props) {
             Add to List
           </button>
         </InputGroup>
-
         <Table striped bordered hover variant="light" responsive>
           <thead>
             <tr>
               <th>Name</th>
               <th>Author</th>
-              <th>Edit</th>
-              <th>Delete</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -97,10 +99,8 @@ export default function BookList(props) {
                 <tr key={index}>
                   <td>{book.title}</td>
                   <td>{book.author}</td>
-                  <td id="td-edit">
-                    <button id="edit">✏️</button>
-                  </td>
-                  <td id="td-delete">
+                  <td id="td-actions">
+                    <button id="edit">✏️ &nbsp;</button>
                     <button id="delete" onClick={() => deleteBook(book.id)}>
                       🗑️
                     </button>
